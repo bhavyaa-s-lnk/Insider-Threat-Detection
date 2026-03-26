@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora - Insider Threat Detection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar glass-panel">
+            <div class="logo">
+                <i class="fas fa-shield-alt icon-glow"></i>
+                <h2>Aurora</h2>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active"><i class="fas fa-chart-line"></i> Dashboard</li>
+                    <li><i class="fas fa-users"></i> Users</li>
+                    <li><i class="fas fa-exclamation-triangle"></i> Alerts</li>
+                    <li><i class="fas fa-cog"></i> Settings</li>
+                </ul>
+            </nav>
+            <div class="system-status">
+                <div class="status-indicator active-status"></div>
+                System Online
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <h1>Threat Intelligence Dashboard</h1>
+                <div class="user-profile">
+                    <span>Admin</span>
+                    <div class="avatar">A</div>
+                </div>
+            </header>
+
+            <!-- Metrics Overview -->
+            <section class="metrics-grid">
+                <div class="metric-card glass-panel">
+                    <h3>Total Activities Monitored</h3>
+                    <p class="metric-value" id="val-total">---</p>
+                </div>
+                <div class="metric-card glass-panel">
+                    <h3>Monitored Users</h3>
+                    <p class="metric-value" id="val-users">---</p>
+                </div>
+                <div class="metric-card glass-panel alert-red">
+                    <h3>Critical Anomalies Detected</h3>
+                    <p class="metric-value" id="val-anomalies">---</p>
+                </div>
+                <div class="metric-card glass-panel">
+                    <h3>Current Threat Level</h3>
+                    <p class="metric-value" id="val-rate">---</p>
+                </div>
+            </section>
+
+            <!-- Charts Section -->
+            <section class="charts-grid">
+                <div class="chart-container glass-panel">
+                    <h3>Anomalies Overview</h3>
+                    <canvas id="timelineChart"></canvas>
+                </div>
+                <div class="chart-container glass-panel">
+                    <h3>Threats by Department</h3>
+                    <canvas id="deptChart"></canvas>
+                </div>
+            </section>
+
+            <!-- Live Feed Section -->
+            <section class="feed-section">
+                <div class="glass-panel w-50">
+                    <h3>Recent Anomalies <span class="badge danger">Critical</span></h3>
+                    <div class="table-container">
+                        <table id="anomaliesTable">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>User</th>
+                                    <th>Action</th>
+                                    <th>Location</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- JS Populated -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="glass-panel w-50">
+                    <h3>Live Activity Feed</h3>
+                    <div class="table-container">
+                        <table id="activityTable">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>User</th>
+                                    <th>Action</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- JS Populated -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>
